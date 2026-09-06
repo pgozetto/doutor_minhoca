@@ -1,0 +1,58 @@
+:root {
+  --ink: #102b17;
+  --leaf: #12652b;
+  --lime: #9df21f;
+  --cream: #eaf7d2;
+  --paper: #dff4c2;
+  --orange: #ff7043;
+  --line: rgba(16, 43, 23, 0.22);
+}
+
+body {
+  background:
+    radial-gradient(circle at 93% 8%, rgba(157, 242, 31, 0.62), transparent 24rem),
+    linear-gradient(125deg, #dff4c2 0%, #edf9d9 48%, #c4ec8e 100%);
+}
+
+.hero-visual:before {
+  background: #7ee51b;
+  box-shadow: 20px 24px 0 rgba(20, 94, 34, 0.14);
+}
+
+.hero-sticker { background: #f75e3f; }
+
+.about { background: #a9df64; }
+.about-image { box-shadow: 15px 16px 0 #0d5425; }
+.about-copy > p:not(.section-label) { color: #29462b; }
+
+.products {
+  background: #d0ef98;
+  padding-left: 42px;
+  padding-right: 42px;
+  width: min(1264px, calc(100% - 32px));
+}
+
+.humus-banner {
+  background: linear-gradient(120deg, #0c4d20, #117230);
+  box-shadow: 14px 14px 0 #75c62c;
+}
+
+.humus-banner:before { background: #9df21f; }
+.humus-art { background: #ce8642; }
+
+.product { border: 2px solid rgba(16, 43, 23, 0.23); }
+.product.terracotta { background: #d65c43; color: #fff9e9; }
+.product.orange { background: #f07b1d; color: #452208; }
+.product.lime { background: #9de61f; color: #183a17; }
+.product.blue { background: #49b6e8; color: #123d57; }
+.product.terracotta .price, .product.terracotta .price-list { border-color: rgba(255, 255, 255, 0.43); }
+
+.shipping { background: linear-gradient(135deg, #082f14, #0c5a26); }
+.order { background: #bbeb72; padding-left: 43px; padding-right: 43px; width: min(1264px, calc(100% - 32px)); }
+footer { background: #79d82c; }
+
+@media (max-width: 760px) {
+  .products, .order { width: min(100% - 32px, 600px); padding-left: 16px; padding-right: 16px; }
+  .products { padding-top: 71px; padding-bottom: 71px; }
+  .order { padding-top: 68px; padding-bottom: 68px; }
+}

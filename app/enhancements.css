@@ -1,0 +1,421 @@
+.hero-overlay {
+  min-height: 720px;
+  position: relative;
+  display: grid;
+  place-items: center;
+  margin-top: 18px;
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.hero-backdrop {
+  position: absolute;
+  inset: -20px;
+  z-index: -3;
+  filter: blur(5px) saturate(.72) brightness(.62);
+  transform: scale(1.05);
+}
+
+.hero-backdrop img {
+  object-fit: cover;
+  object-position: 68% 38%;
+}
+
+.hero-vignette {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    linear-gradient(90deg, rgba(1, 10, 7, .95) 0%, rgba(1, 10, 7, .76) 48%, rgba(1, 10, 7, .38) 100%),
+    linear-gradient(0deg, rgba(1, 10, 7, .7), transparent 55%);
+}
+
+.hero-overlay:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(circle at 70% 45%, rgba(114, 208, 91, .22), transparent 30%);
+}
+
+.hero-content {
+  width: min(1080px, calc(100% - 64px));
+  padding: 80px 0 55px;
+}
+
+.hero-content h1 {
+  max-width: 930px;
+  margin: 23px 0 28px;
+  font-size: clamp(64px, 8.4vw, 118px);
+  font-weight: 650;
+  line-height: .88;
+  letter-spacing: -.065em;
+  text-shadow: 0 8px 34px rgba(0, 0, 0, .5);
+}
+
+.hero-content h1 em,
+.hero-content h1 span { color: var(--primary); }
+
+.hero-content > p:not(.kicker) {
+  max-width: 570px;
+  color: #d0ddc9;
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.whatsapp-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 13px 18px;
+  border: 1px solid rgba(166, 228, 130, .32);
+  border-radius: 8px;
+  background: rgba(10, 72, 37, .8);
+  color: #f3f9ed !important;
+  font-size: 13px;
+  font-weight: 700;
+  transition: transform .2s, background .2s, box-shadow .2s;
+}
+
+.whatsapp-button:hover {
+  transform: translateY(-3px);
+  background: #146f38;
+  box-shadow: 0 14px 34px rgba(39, 177, 82, .2);
+}
+
+.whatsapp-icon {
+  width: 19px;
+  height: 19px;
+  fill: #9ff08b;
+  flex: 0 0 auto;
+}
+
+.hero-content .numbers { margin-top: 52px; }
+.story-copy h2 { font-size: clamp(54px, 6vw, 83px); }
+
+.humus-section { padding: 145px 0; }
+.humus-section h2 { font-size: clamp(46px, 5.5vw, 76px); margin: 24px 0 0; }
+.provisional { margin: 22px 0 0; color: #718579; font-size: 10px; letter-spacing: .06em; text-transform: uppercase; }
+.humus-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 48px; align-items: start; }
+.humus-product { border: 1px solid var(--border); border-radius: 18px; background: linear-gradient(155deg, rgba(22, 67, 45, .8), rgba(7, 31, 20, .92)); overflow: hidden; box-shadow: 0 24px 64px rgba(0, 0, 0, .22); transition: border-color .2s, transform .2s; }
+.humus-product:hover { border-color: rgba(159, 216, 117, .4); transform: translateY(-4px); }
+.humus-product[open] { border-color: rgba(159, 216, 117, .48); }
+.humus-product summary { list-style: none; cursor: pointer; padding: 22px; position: relative; }
+.humus-product summary::-webkit-details-marker, .species-card summary::-webkit-details-marker { display: none; }
+.product-index { position: absolute; left: 22px; top: 19px; z-index: 2; color: var(--primary); font-size: 10px; }
+.humus-image { position: relative; height: 255px; margin-bottom: 16px; }
+.humus-image:after { content: ""; position: absolute; left: 13%; right: 13%; bottom: 1px; height: 20px; border-radius: 50%; background: rgba(0, 0, 0, .45); filter: blur(10px); }
+.humus-image img { object-fit: contain; filter: drop-shadow(0 16px 20px rgba(0, 0, 0, .24)); }
+.product-heading > p { margin: 0 0 8px; color: var(--primary); font-size: 9px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; }
+.product-heading h3 { margin: 0; font-size: 30px; line-height: 1; letter-spacing: -.045em; }
+.expand-hint { display: flex; justify-content: space-between; align-items: center; margin-top: 20px; padding-top: 13px; border-top: 1px solid var(--border); color: #d6e3cf; font-size: 11px; font-weight: 650; }
+.expand-hint i { display: grid; place-items: center; width: 25px; height: 25px; border: 1px solid var(--border); border-radius: 50%; color: var(--primary); font-size: 17px; font-style: normal; transition: transform .2s; }
+details[open] .expand-hint i { transform: rotate(45deg); }
+.product-details, .worm-details { padding: 0 22px 23px; border-top: 1px solid var(--border); }
+.product-details > strong { display: block; margin-top: 20px; color: var(--primary); font-size: 25px; letter-spacing: -.04em; }
+.product-details > small { display: block; margin: 6px 0 17px; color: #cfdbca; font-size: 10px; }
+.product-details > p, .worm-details > p { color: var(--muted); font-size: 12px; line-height: 1.65; }
+.product-details h4 { margin: 18px 0 9px; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
+.product-details ul { margin: 0 0 20px; padding: 0; list-style: none; }
+.product-details li { padding: 7px 0; border-bottom: 1px solid var(--border); color: #cfdbca; font-size: 11px; }
+.product-details li:before { content: "✦"; margin-right: 8px; color: var(--primary); }
+.compact { width: 100%; min-height: 44px; padding: 10px; font-size: 11px; }
+
+.species-heading h2 { font-size: clamp(48px, 6vw, 78px); }
+.species-grid { align-items: start; }
+.species-card { padding: 0; overflow: hidden; }
+.species-card summary { list-style: none; cursor: pointer; padding: 19px; }
+.species-top { height: 125px; position: relative; }
+.species-top > span:first-child { position: relative; z-index: 2; }
+.worm-photo { position: absolute; inset: -23px -12px -10px 20px; }
+.worm-photo img { object-fit: contain; filter: drop-shadow(0 12px 17px rgba(0, 0, 0, .35)); }
+.species-card h3 { margin-top: 17px; }
+.species-card summary > em { color: var(--muted); font-size: 11px; }
+.species-card .expand-hint { margin-top: 17px; }
+.worm-details { padding-top: 18px; }
+.worm-details .order-list { margin: 16px 0; }
+.species-card[open] { background: #143a29; border-color: rgba(159, 216, 117, .44); }
+
+.shipping-night { grid-template-columns: .95fr 1.05fr; }
+.shipping-steps article { grid-template-columns: 62px 1fr; padding: 24px 0; align-items: center; }
+.step-icon { display: grid; place-items: center; width: 42px; height: 42px; border: 1px solid rgba(159, 216, 117, .35); border-radius: 10px; background: rgba(23, 80, 50, .45); }
+.step-icon svg { width: 22px; height: 22px; fill: none; stroke: var(--primary); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.shipping-steps p { display: grid; gap: 5px; font-size: 18px; }
+.shipping-steps small { color: var(--muted); font-size: 13px; line-height: 1.45; }
+
+.cta-night h2 { max-width: 920px; margin-inline: auto; font-size: clamp(43px, 5.5vw, 72px); }
+.cta-night h2 { min-height: 2.05em; }
+.cta-night .type-lead { color: var(--text); }
+.cta-night .type-caret { display: inline-block; width: .08em; height: .82em; margin: 0 .055em -.08em .04em; background: var(--primary); vertical-align: baseline; animation: blink-caret .72s steps(1) infinite; }
+.cta-night .cta-whatsapp { opacity: 0; transform: translateY(16px); pointer-events: none; }
+.cta-night.is-complete .cta-whatsapp { opacity: 1; transform: translateY(0); pointer-events: auto; transition: opacity .45s ease, transform .45s cubic-bezier(.2,.8,.2,1), background .2s, box-shadow .2s; }
+.cta-whatsapp { min-height: 68px; padding: 18px 30px; border: 0; background: var(--primary); color: #092014 !important; font-size: 17px; }
+.cta-whatsapp .whatsapp-icon { width: 25px; height: 25px; fill: #0b4022; }
+.cta-whatsapp:hover { background: #b5eb8d; }
+
+@media (max-width: 780px) {
+  .hero-overlay { width: calc(100% - 20px); min-height: 680px; margin-top: 7px; }
+  .hero-content { width: calc(100% - 38px); padding: 100px 0 50px; }
+  .hero-content h1 { font-size: clamp(53px, 15vw, 76px); }
+  .hero-vignette { background: linear-gradient(0deg, rgba(1, 10, 7, .94), rgba(1, 10, 7, .48)), linear-gradient(90deg, rgba(1, 10, 7, .78), transparent); }
+  .hero-backdrop img { object-position: 61% center; }
+  .hero-content > p:not(.kicker) { font-size: 15px; }
+  .humus-section { padding: 91px 0; }
+  .humus-grid { grid-template-columns: 1fr; }
+  .humus-image { height: 290px; }
+  .shipping-night { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 430px) {
+  .night-nav nav a:nth-child(3), .night-nav nav a:nth-child(4) { display: none; }
+  .hero-links { flex-direction: column; align-items: stretch; }
+  .hero-links a { width: 100%; }
+  .hero-content .numbers { margin-top: 35px; }
+  .humus-image { height: 245px; }
+  .shipping-steps p { font-size: 16px; }
+  .cta-night h2 br { display: none; }
+}
+
+/* Movimento sutil da abertura: acompanha a rolagem e responde ao cursor. */
+.hero-overlay {
+  --pointer-x: 50%;
+  --pointer-y: 50%;
+  --content-x: 0px;
+  --content-y: 0px;
+  --parallax-y: 0px;
+  --parallax-content-y: 0px;
+}
+
+.hero-overlay:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: var(--pointer-x);
+  top: var(--pointer-y);
+  width: 38rem;
+  height: 38rem;
+  border: 1px solid rgba(171, 238, 126, .52);
+  border-radius: 45% 55% 63% 37% / 41% 39% 61% 59%;
+  box-shadow: 0 0 0 22px rgba(113, 204, 87, .04), 0 0 90px rgba(128, 229, 100, .2);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(.55) rotate(-18deg);
+  transition: opacity .35s ease, transform .7s cubic-bezier(.2,.8,.2,1);
+}
+
+.hero-overlay:hover:before {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1) rotate(14deg);
+}
+
+.hero-backdrop {
+  transform: scale(1.08) translate3d(0, var(--parallax-y), 0);
+  transition: transform .28s ease-out;
+  will-change: transform;
+}
+
+.hero-content {
+  transform: translate3d(var(--content-x), calc(var(--content-y) + var(--parallax-content-y)), 0);
+  transition: transform .35s cubic-bezier(.2,.8,.2,1);
+  will-change: transform;
+}
+
+.hero-orb {
+  position: absolute;
+  z-index: -1;
+  border: 1px solid rgba(161, 230, 117, .3);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: orbit-drift 9s ease-in-out infinite alternate;
+}
+
+.orb-one {
+  width: 150px;
+  height: 150px;
+  top: 9%;
+  right: 8%;
+}
+
+.orb-two {
+  width: 82px;
+  height: 82px;
+  bottom: 11%;
+  right: 26%;
+  border-color: rgba(171, 238, 126, .5);
+  animation-delay: -4s;
+}
+
+.hero-kicker,
+.hero-title,
+.hero-description,
+.hero-actions,
+.hero-numbers {
+  opacity: 0;
+  animation: text-rise .8s cubic-bezier(.16,1,.3,1) forwards;
+}
+
+.hero-title { animation-delay: .08s; }
+.hero-description { animation-delay: .18s; }
+.hero-actions { animation-delay: .28s; }
+.hero-numbers { animation-delay: .38s; }
+
+.hero-title span {
+  display: inline-block;
+  background: linear-gradient(105deg, var(--primary) 25%, #e7ffd7 50%, var(--primary) 74%);
+  background-size: 220% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: green-shimmer 6s ease-in-out 1.2s infinite;
+}
+
+.hero-actions .solid-button,
+.hero-actions .whatsapp-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-actions .solid-button:after,
+.hero-actions .whatsapp-button:after {
+  content: "";
+  position: absolute;
+  inset: -90% auto -90% -35%;
+  width: 24%;
+  background: rgba(255, 255, 255, .38);
+  transform: rotate(19deg) translateX(-420%);
+  transition: transform .55s ease;
+}
+
+.hero-actions .solid-button:hover:after,
+.hero-actions .whatsapp-button:hover:after { transform: rotate(19deg) translateX(700%); }
+
+@keyframes text-rise {
+  from { opacity: 0; transform: translateY(22px); filter: blur(7px); }
+  to { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+@keyframes orbit-drift {
+  from { transform: translate3d(-7px, 10px, 0) scale(.94); }
+  to { transform: translate3d(12px, -10px, 0) scale(1.08); }
+}
+
+@keyframes green-shimmer {
+  0%, 45% { background-position: 0% 50%; }
+  70%, 100% { background-position: 100% 50%; }
+}
+
+@keyframes blink-caret {
+  0%, 45% { opacity: 1; }
+  46%, 100% { opacity: 0; }
+}
+
+@media (max-width: 780px) {
+  .hero-overlay:before { width: 26rem; height: 26rem; }
+  .orb-one { right: -38px; top: 6%; }
+  .orb-two { right: 12%; bottom: 8%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-overlay:before { display: none; }
+  .hero-backdrop,
+  .hero-content { transform: none !important; transition: none !important; }
+  .hero-orb,
+  .hero-kicker,
+  .hero-title,
+  .hero-description,
+  .hero-actions,
+  .hero-numbers,
+  .hero-title span { animation: none !important; opacity: 1; filter: none; }
+  .cta-night .type-caret { display: none; }
+  .cta-night .cta-whatsapp { opacity: 1; transform: none; pointer-events: auto; }
+}
+
+/* Abertura e fechamento dos cards de húmus e minhocas. */
+:root { interpolate-size: allow-keywords; }
+
+.humus-product,
+.species-card {
+  position: relative;
+  transition: transform .32s cubic-bezier(.2,.8,.2,1), border-color .32s ease, box-shadow .32s ease, background .32s ease;
+}
+
+.humus-product::details-content,
+.species-card::details-content {
+  block-size: 0;
+  opacity: 0;
+  overflow: clip;
+  transition: content-visibility .42s allow-discrete, block-size .42s cubic-bezier(.2,.8,.2,1), opacity .24s ease;
+}
+
+.humus-product[open]::details-content,
+.species-card[open]::details-content {
+  block-size: auto;
+  opacity: 1;
+}
+
+.humus-product summary,
+.species-card summary {
+  transition: background .3s ease, transform .3s ease;
+}
+
+.humus-product[open],
+.species-card[open] {
+  transform: translateY(-7px);
+  border-color: rgba(177, 241, 132, .62);
+  box-shadow: 0 28px 70px rgba(0, 0, 0, .34), 0 0 42px rgba(126, 225, 98, .13);
+}
+
+.humus-product[open] summary,
+.species-card[open] summary {
+  background: linear-gradient(145deg, rgba(53, 121, 70, .22), transparent 75%);
+}
+
+.humus-image img,
+.worm-photo img {
+  transition: transform .55s cubic-bezier(.16,1,.3,1), filter .4s ease;
+}
+
+.humus-product[open] .humus-image img {
+  transform: scale(1.075) translateY(-5px) rotate(-1deg);
+  filter: drop-shadow(0 22px 28px rgba(0, 0, 0, .34)) saturate(1.08);
+}
+
+.species-card[open] .worm-photo img {
+  transform: scale(1.12) rotate(3deg);
+  filter: drop-shadow(0 18px 24px rgba(0, 0, 0, .48)) saturate(1.16);
+}
+
+.humus-product[open] .expand-hint i,
+.species-card[open] .expand-hint i {
+  background: var(--primary);
+  color: #082112;
+  border-color: var(--primary);
+  box-shadow: 0 0 18px rgba(159, 216, 117, .44);
+}
+
+.humus-product[open] .product-details,
+.species-card[open] .worm-details {
+  animation: details-reveal .42s cubic-bezier(.16,1,.3,1) both;
+}
+
+@keyframes details-reveal {
+  from { transform: translateY(-10px); filter: blur(3px); }
+  to { transform: translateY(0); filter: blur(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .humus-product::details-content,
+  .species-card::details-content,
+  .humus-product,
+  .species-card,
+  .humus-product summary,
+  .species-card summary,
+  .humus-image img,
+  .worm-photo img { transition: none !important; }
+  .humus-product[open] .product-details,
+  .species-card[open] .worm-details { animation: none !important; }
+}

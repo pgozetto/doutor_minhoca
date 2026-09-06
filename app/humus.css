@@ -1,0 +1,25 @@
+.humus-prices {
+  border-top: 1px solid rgba(244, 240, 223, 0.44);
+}
+
+.humus-prices a {
+  display: grid;
+  grid-template-columns: 1fr auto 20px;
+  gap: 8px;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(244, 240, 223, 0.44);
+  color: var(--cream);
+  font-size: 13px;
+  transition: color 0.2s, padding 0.2s;
+}
+
+.humus-prices a:hover {
+  color: var(--lime);
+  padding-left: 5px;
+}
+
+.humus-prices i {
+  font-size: 16px;
+  font-style: normal;
+}
