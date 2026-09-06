@@ -160,7 +160,8 @@ details[open] .expand-hint i { transform: rotate(45deg); }
 @media (max-width: 780px) {
   .hero-overlay { width: calc(100% - 20px); min-height: 680px; margin-top: 7px; }
   .hero-content { width: calc(100% - 38px); padding: 100px 0 50px; }
-  .hero-content h1 { font-size: clamp(53px, 15vw, 76px); }
+  .hero-content h1 { font-size: clamp(44px, 12vw, 58px); }
+  .hero-content h1 span { display: inline; overflow-wrap: anywhere; }
   .hero-vignette { background: linear-gradient(0deg, rgba(1, 10, 7, .94), rgba(1, 10, 7, .48)), linear-gradient(90deg, rgba(1, 10, 7, .78), transparent); }
   .hero-backdrop img { object-position: 61% center; }
   .hero-content > p:not(.kicker) { font-size: 15px; }
