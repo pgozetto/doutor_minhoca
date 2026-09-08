@@ -100,7 +100,7 @@
 .humus-section { padding: 145px 0; }
 .humus-section h2 { font-size: clamp(46px, 5.5vw, 76px); margin: 24px 0 0; }
 .provisional { margin: 22px 0 0; color: #718579; font-size: 10px; letter-spacing: .06em; text-transform: uppercase; }
-.humus-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 48px; align-items: start; }
+.humus-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; margin-top: 48px; align-items: start; }
 .humus-product { border: 1px solid var(--border); border-radius: 18px; background: linear-gradient(155deg, rgba(22, 67, 45, .8), rgba(7, 31, 20, .92)); overflow: hidden; box-shadow: 0 24px 64px rgba(0, 0, 0, .22); transition: border-color .2s, transform .2s; }
 .humus-product:hover { border-color: rgba(159, 216, 117, .4); transform: translateY(-4px); }
 .humus-product[open] { border-color: rgba(159, 216, 117, .48); }
@@ -117,7 +117,7 @@
 details[open] .expand-hint i { transform: rotate(45deg); }
 .product-details, .worm-details { padding: 0 22px 23px; border-top: 1px solid var(--border); }
 .product-details > strong { display: block; margin-top: 20px; color: var(--primary); font-size: 25px; letter-spacing: -.04em; }
-.product-details > small { display: block; margin: 6px 0 17px; color: #cfdbca; font-size: 10px; }
+.product-details > small { display: block; margin: 20px 0 17px; color: #cfdbca; font-size: 11px; font-weight: 650; letter-spacing: .02em; }
 .product-details > p, .worm-details > p { color: var(--muted); font-size: 12px; line-height: 1.65; }
 .product-details h4 { margin: 18px 0 9px; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
 .product-details ul { margin: 0 0 20px; padding: 0; list-style: none; }
@@ -444,4 +444,26 @@ details[open] .expand-hint i { transform: rotate(45deg); }
   .worm-photo img { transition: none !important; }
   .humus-product[open] .product-details,
   .species-card[open] .worm-details { animation: none !important; }
+}
+
+/* Foto atualizada e redes sociais no rodapé. */
+.story-image img { object-position: center 32%; }
+.footer-night { align-items: flex-start; gap: 56px; }
+.footer-social { margin-left: auto; text-align: right; }
+.footer-social > p { margin: 0 0 14px; color: var(--primary); font-size: 9px; font-weight: 650; letter-spacing: .12em; }
+.social-links { display: grid; grid-template-columns: repeat(2, minmax(116px, 1fr)); gap: 9px; }
+.social-links a { display: inline-flex; align-items: center; justify-content: flex-end; gap: 8px; color: #d7e4d0; font-size: 11px; transition: color .2s ease, transform .2s ease; }
+.social-links a:hover { color: var(--primary); transform: translateX(-3px); }
+.social-icon { width: 22px; height: 22px; color: var(--primary); flex: 0 0 auto; }
+.social-icon-facebook path,
+.social-icon-tiktok path,
+.social-icon-youtube path { fill: currentColor; }
+.social-icon-instagram rect,
+.social-icon-instagram circle { fill: none; stroke: currentColor; stroke-width: 2; }
+.social-icon-instagram .social-dot { fill: currentColor; stroke: none; }
+
+@media (max-width: 780px) {
+  .footer-social { margin-left: 0; text-align: left; }
+  .social-links { width: min(100%, 340px); }
+  .social-links a { justify-content: flex-start; }
 }
