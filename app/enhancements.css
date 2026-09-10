@@ -112,9 +112,7 @@
 .humus-image img { object-fit: contain; filter: drop-shadow(0 16px 20px rgba(0, 0, 0, .24)); }
 .product-heading > p { margin: 0 0 8px; color: var(--primary); font-size: 9px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; }
 .product-heading h3 { margin: 0; font-size: 30px; line-height: 1; letter-spacing: -.045em; }
-.expand-hint { display: flex; justify-content: space-between; align-items: center; margin-top: 20px; padding-top: 13px; border-top: 1px solid var(--border); color: #d6e3cf; font-size: 11px; font-weight: 650; }
-.expand-hint i { display: grid; place-items: center; width: 25px; height: 25px; border: 1px solid var(--border); border-radius: 50%; color: var(--primary); font-size: 17px; font-style: normal; transition: transform .2s; }
-details[open] .expand-hint i { transform: rotate(45deg); }
+.expand-hint { display: flex; justify-content: flex-start; align-items: center; margin-top: 20px; padding-top: 13px; border-top: 1px solid var(--border); color: #d6e3cf; font-size: 11px; font-weight: 650; }
 .product-details, .worm-details { padding: 0 22px 23px; border-top: 1px solid var(--border); }
 .product-details > strong { display: block; margin-top: 20px; color: var(--primary); font-size: 25px; letter-spacing: -.04em; }
 .product-details > small { display: block; margin: 20px 0 17px; color: #cfdbca; font-size: 11px; font-weight: 650; letter-spacing: .02em; }
@@ -415,14 +413,6 @@ details[open] .expand-hint i { transform: rotate(45deg); }
   filter: drop-shadow(0 18px 24px rgba(0, 0, 0, .48)) saturate(1.16);
 }
 
-.humus-product[open] .expand-hint i,
-.species-card[open] .expand-hint i {
-  background: var(--primary);
-  color: #082112;
-  border-color: var(--primary);
-  box-shadow: 0 0 18px rgba(159, 216, 117, .44);
-}
-
 .humus-product[open] .product-details,
 .species-card[open] .worm-details {
   animation: details-reveal .42s cubic-bezier(.16,1,.3,1) both;
@@ -498,32 +488,53 @@ details[open] .expand-hint i { transform: rotate(45deg); }
 .footer-contact a,
 .social-links a { color: #dce7d7; font-size: 13px; }
 
-.hero-worm {
+.hero-logo-mark {
   position: absolute;
-  right: 5%;
-  bottom: 8%;
+  right: 4.5%;
+  bottom: 4.5%;
   z-index: 0;
-  width: clamp(175px, 22vw, 290px);
-  aspect-ratio: 1.65;
+  width: clamp(190px, 23vw, 300px);
+  aspect-ratio: 1;
+  overflow: hidden;
+  border: 1px solid rgba(225, 255, 209, .34);
+  border-radius: 50%;
+  background: rgba(9, 54, 30, .26);
   pointer-events: none;
-  opacity: .72;
-  transform: rotate(-9deg);
-  animation: worm-float 5.8s ease-in-out infinite alternate;
+  opacity: .6;
+  box-shadow: 0 22px 58px rgba(0, 0, 0, .38), 0 0 54px rgba(104, 231, 93, .16);
+  animation: logo-float 6.4s ease-in-out infinite alternate;
 }
 
-.hero-worm:before {
+.hero-logo-mark:before {
   content: "";
   position: absolute;
-  inset: 35% 6% 4%;
+  inset: -12%;
+  z-index: 1;
   border-radius: 50%;
-  background: rgba(78, 196, 80, .2);
-  filter: blur(25px);
+  background: radial-gradient(circle, transparent 45%, rgba(3, 21, 15, .5) 78%);
+  pointer-events: none;
 }
 
-.hero-worm img {
-  object-fit: contain;
-  filter: saturate(1.12) contrast(1.12) brightness(1.04) drop-shadow(0 18px 22px rgba(0, 0, 0, .55));
+.hero-logo-mark:after {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  z-index: 2;
+  width: 48%;
+  background: linear-gradient(90deg, rgba(3, 21, 15, .46), rgba(3, 21, 15, .05));
+  backdrop-filter: blur(7px);
+  -webkit-mask-image: linear-gradient(90deg, #000 20%, transparent 100%);
+  mask-image: linear-gradient(90deg, #000 20%, transparent 100%);
+  pointer-events: none;
 }
+
+.hero-logo-mark img {
+  object-fit: cover;
+  border-radius: 50%;
+  filter: saturate(.92) contrast(1.04) brightness(.93);
+}
+
+.hero-content { position: relative; z-index: 1; }
 
 .humus-product .expand-hint,
 .species-card .expand-hint {
@@ -677,9 +688,9 @@ details[open] .expand-hint i { transform: rotate(45deg); }
   box-shadow: 0 12px 30px rgba(0, 0, 0, .35);
 }
 
-@keyframes worm-float {
-  from { transform: translate3d(0, 5px, 0) rotate(-11deg); }
-  to { transform: translate3d(-12px, -8px, 0) rotate(-5deg); }
+@keyframes logo-float {
+  from { transform: translate3d(0, 6px, 0) scale(.98); }
+  to { transform: translate3d(-10px, -8px, 0) scale(1.025); }
 }
 
 @keyframes photo-backdrop-in { from { opacity: 0; } to { opacity: 1; } }
@@ -690,7 +701,7 @@ details[open] .expand-hint i { transform: rotate(45deg); }
 @media (max-width: 780px) {
   .night-nav nav { font-size: 12px; }
   .hero-content > p:not(.kicker) { font-size: 16px; }
-  .hero-worm { right: -6px; bottom: 4%; width: 155px; opacity: .48; }
+  .hero-logo-mark { right: -24px; bottom: 5%; width: 170px; opacity: .28; filter: blur(.45px); }
   .catalog-heading > p,
   .species-heading > p,
   .story-copy > p:not(.kicker) { font-size: 16px; }
@@ -702,7 +713,7 @@ details[open] .expand-hint i { transform: rotate(45deg); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-worm,
+  .hero-logo-mark,
   .product-photo-modal,
   .product-photo-modal-card,
   .product-photo-modal.is-closing,
